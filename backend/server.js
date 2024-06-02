@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 let tasks = [];
 let users = ['Luke Skywalker', 'Darth Vader', 'Han Solo', 'Leia Organa', 'Yoda'];
 
-// Routes for tasks
+
 app.get('/tasks', (req, res) => {
   res.json(tasks);
 });
@@ -34,7 +34,7 @@ app.delete('/tasks/:id', (req, res) => {
   res.json({ message: 'Task deleted successfully' });
 });
 
-// Routes for users
+
 app.get('/users', (req, res) => {
   res.json(users);
 });
