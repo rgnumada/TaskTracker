@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import axios from 'axios';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
@@ -88,11 +88,9 @@ const App = () => {
           />
         </header>
         <main>
-          <Switch>
-            <Route path="/dashboard">
-              <Dashboard tasks={tasks} />
-            </Route>
-            <Route path="/">
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard tasks={tasks} />} />
+            <Route path="/" element={
               <>
                 <TaskForm addTask={addTask} />
                 <TaskList 
@@ -102,8 +100,8 @@ const App = () => {
                   deleteTask={deleteTask} 
                 />
               </>
-            </Route>
-          </Switch>
+            } />
+          </Routes>
         </main>
       </div>
     </Router>
